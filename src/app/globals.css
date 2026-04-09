@@ -1,26 +1,199 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/* =============================================
+   TAILWIND v4 THEME — Ragdoll Design Tokens
+   En TW v4, @theme reemplaza a tailwind.config.
+   Cada variable aquí genera clases utilitarias:
+     --color-ragdoll-gold → bg-ragdoll-gold, text-ragdoll-gold, etc.
+   ============================================= */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* Colores */
+  --color-ragdoll-dark: #0a0a0f;
+  --color-ragdoll-dark-800: #141420;
+  --color-ragdoll-dark-700: #1e1e30;
+  --color-ragdoll-gold: #f5c518;
+  --color-ragdoll-gold-dim: #c49b0d;
+  --color-ragdoll-amber: #d4930d;
+  --color-ragdoll-cream: #f5f0e6;
+  --color-ragdoll-blue: #1a2744;
+  --color-ragdoll-blue-deep: #0d1628;
+  --color-ragdoll-orange: #e8651a;
+
+  /* Fuentes — los valores vienen de las CSS variables
+     que next/font/google inyecta en el <html> */
+  --font-display: var(--font-amatic-sc);
+  --font-body: var(--font-outfit);
+  --font-mono: var(--font-space-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* =============================================
+   ESTILOS BASE
+   ============================================= */
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #0a0a0f;
+  color: #f5f0e6;
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+/* =============================================
+   ACCESIBILIDAD — Reduced Motion
+   Si el usuario tiene animaciones desactivadas
+   en su SO, desactivamos GSAP y transiciones.
+   ============================================= */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =============================================
+   FORM FIELDS — Focus via CSS (0 JS por frame)
+   ============================================= */
+.chapter4-control {
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.chapter4-control:focus {
+  transform: translateY(-2px);
+  border-color: rgba(212, 175, 55, 1);
+  box-shadow: 0 0 0 1px rgba(212, 175, 55, 0.25);
+}
+
+/* =============================================
+   SWEETALERT 2 — Ragdoll Theme (GPU-friendly)
+   ============================================= */
+.swal-ragdoll-popup {
+  border: 1px solid rgba(212, 175, 55, 0.35) !important;
+  border-radius: 14px !important;
+  box-shadow:
+    0 0 60px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(212, 175, 55, 0.08) !important;
+}
+
+.swal-ragdoll-title {
+  font-family: var(--font-display), serif !important;
+  font-size: clamp(1.6rem, 4vw, 2.2rem) !important;
+  color: #d4af37 !important;
+  letter-spacing: 0.02em !important;
+}
+
+.swal-ragdoll-html {
+  font-family: var(--font-mono), monospace !important;
+}
+
+.swal-ragdoll-btn {
+  font-family: var(--font-mono), monospace !important;
+  letter-spacing: 0.08em !important;
+  border-radius: 10px !important;
+  padding: 12px 32px !important;
+  font-size: 0.95rem !important;
+  transition: transform 0.15s ease, box-shadow 0.15s ease !important;
+}
+
+.swal-ragdoll-btn:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 16px rgba(234, 88, 12, 0.35) !important;
+}
+
+/* Colores de íconos */
+.swal2-icon.swal2-success {
+  border-color: rgba(212, 175, 55, 0.4) !important;
+  color: #d4af37 !important;
+}
+.swal2-icon.swal2-success [class^="swal2-success-line"] {
+  background-color: #d4af37 !important;
+}
+.swal2-icon.swal2-success .swal2-success-ring {
+  border-color: rgba(212, 175, 55, 0.3) !important;
+}
+.swal2-icon.swal2-error {
+  border-color: rgba(234, 88, 12, 0.4) !important;
+}
+.swal2-icon.swal2-error [class^="swal2-x-mark-line"] {
+  background-color: #ea580c !important;
+}
+
+/* ---- Keyframes (solo opacity + transform = GPU composited) ---- */
+@keyframes swalPopIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.85) translateY(28px) translate3d(0, 0, 0);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.02) translateY(-2px) translate3d(0, 0, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0) translate3d(0, 0, 0);
+  }
+}
+
+@keyframes swalPopOut {
+  0% {
+    opacity: 1;
+    transform: scale(1) translateY(0) translate3d(0, 0, 0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.92) translateY(16px) translate3d(0, 0, 0);
+  }
+}
+
+@keyframes swalChildSlide {
+  from {
+    opacity: 0;
+    transform: translateY(12px) translate3d(0, 0, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) translate3d(0, 0, 0);
+  }
+}
+
+@keyframes swalGlowPulse {
+  0%, 100% {
+    border-color: rgba(212, 175, 55, 0.35);
+  }
+  50% {
+    border-color: rgba(212, 175, 55, 0.6);
+  }
+}
+
+/* ---- Popup show / hide ---- */
+.swal-ragdoll-show {
+  animation: swalPopIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards,
+             swalGlowPulse 2.5s ease-in-out 0.4s infinite !important;
+}
+
+.swal-ragdoll-hide {
+  animation: swalPopOut 0.25s cubic-bezier(0.55, 0, 1, 0.45) forwards !important;
+}
+
+/* ---- Staggered children ---- */
+.swal-ragdoll-show .swal2-icon {
+  animation: swalChildSlide 0.35s cubic-bezier(0.16, 1, 0.3, 1) 0.08s both !important;
+}
+.swal-ragdoll-show .swal-ragdoll-title {
+  animation: swalChildSlide 0.35s cubic-bezier(0.16, 1, 0.3, 1) 0.14s both !important;
+}
+.swal-ragdoll-show .swal-ragdoll-html {
+  animation: swalChildSlide 0.35s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both !important;
+}
+.swal-ragdoll-show .swal2-actions {
+  animation: swalChildSlide 0.3s cubic-bezier(0.16, 1, 0.3, 1) 0.26s both !important;
+}
+
+/* ---- Backdrop — SIN backdrop-filter (costoso), solo color ---- */
+.swal2-container {
+  background: rgba(0, 0, 0, 0.75) !important;
 }
