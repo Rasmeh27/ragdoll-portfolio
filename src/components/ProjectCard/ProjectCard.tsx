@@ -22,8 +22,7 @@ export default function ProjectCard({
           <Image
             src={image}
             alt={`Screenshot del proyecto ${title}`}
-            width={600}
-            height={800}
+            fill
             className="object-cover object-top"
             sizes="(max-width: 640px) 90vw, (max-width: 768px) 45vw, 33vw"
           />
