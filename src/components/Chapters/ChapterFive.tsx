@@ -252,6 +252,19 @@ export default function ChapterFive() {
             </span>
             .
           </p>
+          <span className="mb-4 inline-flex items-baseline gap-1 font-sans">
+  <span className="text-ragdoll-cream">
+    Desarrollado por
+  </span>
+
+  <span className="ml-1 text-xl font-extrabold tracking-tight text-black dark:text-white">
+    Nach<span className="text-blue-500">OS</span>
+  </span>
+
+  <span className="ml-1 text-base font-semibold text-purple-600">
+    Software & IA.
+  </span>
+</span>
         </footer>
       </div>
     </section>
