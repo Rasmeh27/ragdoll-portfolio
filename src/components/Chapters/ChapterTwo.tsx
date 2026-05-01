@@ -35,6 +35,12 @@ const projects = [
     title: "Farmacia Carol",
     href: "https://www.figma.com/proto/CFOcXvPJBPD6nZGItf64m6/Sin-título?page-id=0%3A1&node-id=3-2&viewport=330%2C113%2C0.09&t=CGY85ZgCmMI62PMK-1&scaling=min-zoom&content-scaling=fixed",
   },
+  {
+    image: "/portafolio/arca.jpg",
+    category: "Rediseño",
+    title: "Arca",
+    href: "https://www.figma.com/proto/htHUD98hFSwZeMLFuW1umB/Arca?node-id=9-227&starting-point-node-id=9%3A227&locale=en",
+  },
 ];
 
 const PAGE_SIZE = 3;
