@@ -37,6 +37,55 @@ const floatingElements = [
     height: 103,
     className: "left-[20%] bottom-[5%] hidden sm:block",
   },
+  {
+    src: "/icons/star.svg",
+    alt: "",
+    width: 40,
+    height: 41,
+    className: "left-[3%] top-[40%]",
+  },
+  {
+    src: "/icons/star.svg",
+    alt: "",
+    width: 28,
+    height: 29,
+    className: "left-[15%] top-[70%] hidden sm:block",
+  },
+  {
+    src: "/icons/star.svg",
+    alt: "",
+    width: 32,
+    height: 33,
+    className: "left-[45%] top-[8%] hidden sm:block",
+  },
+  {
+    src: "/icons/star.svg",
+    alt: "",
+    width: 24,
+    height: 25,
+    className: "right-[20%] top-[35%] hidden sm:block",
+  },
+  {
+    src: "/icons/star.svg",
+    alt: "",
+    width: 36,
+    height: 37,
+    className: "right-[12%] bottom-[15%] hidden sm:block",
+  },
+  {
+    src: "/icons/star.svg",
+    alt: "",
+    width: 22,
+    height: 23,
+    className: "right-[3%] top-[28%]",
+  },
+  {
+    src: "/icons/star.svg",
+    alt: "",
+    width: 30,
+    height: 31,
+    className: "left-[35%] bottom-[12%] hidden sm:block",
+  },
 ];
 
 export default function Hero() {
