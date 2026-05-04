@@ -43,7 +43,7 @@ const projects = [
   },
   {
     image: "/portafolio/nachossoftware.jpg",
-    category: "Rediseño",
+    category: "Diseño",
     title: "NachOS Software & AI",
     href: "https://www.figma.com/proto/DlPqhmoeTYnCSLDKl11sqf/NachOS?node-id=51-678&viewport=1983%2C-1255%2C0.36&t=y5uRhuZFIWJTwlNg-1&scaling=scale-down-width&content-scaling=fixed&page-id=0%3A1",
   },
