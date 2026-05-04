@@ -41,6 +41,12 @@ const projects = [
     title: "Arca",
     href: "https://www.figma.com/proto/htHUD98hFSwZeMLFuW1umB/Arca?node-id=9-227&starting-point-node-id=9%3A227&locale=en",
   },
+  {
+    image: "/portafolio/nachossoftware.jpg",
+    category: "Rediseño",
+    title: "NachOS Software & AI",
+    href: "https://www.figma.com/proto/DlPqhmoeTYnCSLDKl11sqf/NachOS?node-id=51-678&viewport=1983%2C-1255%2C0.36&t=y5uRhuZFIWJTwlNg-1&scaling=scale-down-width&content-scaling=fixed&page-id=0%3A1",
+  },
 ];
 
 const PAGE_SIZE = 3;
